@@ -1,5 +1,5 @@
 const template = html => html`
-  Hello World
+  <section-landing></section-landing>
 `;
 
 export { template };

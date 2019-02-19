@@ -2,6 +2,7 @@ import { TemplateLite } from '@tjmonsi/element-lite/mixins/template-lite.js';
 import { render, html } from 'lit-html';
 import { template } from './template.js';
 import style from './style.styl';
+import './sections/section-landing/index.js'
 
 const { HTMLElement, customElements } = window;
 
