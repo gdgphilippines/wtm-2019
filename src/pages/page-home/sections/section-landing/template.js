@@ -13,7 +13,7 @@ const template = html => html`
 <div class="overlay">
     <div class="overlay-content">
         <h1 class="landing-title">Are you a</h1>
-        <h2 class="landing-subtitle">Filipino inventor?</h>
+        <h2 class="landing-subtitle">Filipina inventor?</h>
     </div>
 
 </div>
