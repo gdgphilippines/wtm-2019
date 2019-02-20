@@ -7,7 +7,7 @@ import style from './style.styl';
 const { HTMLElement, customElements } = window;
 
 class Page extends TemplateLite(HTMLElement) {
-  static get is () { return 'section-landing'; }
+  static get is () { return 'section-about-wtm'; }
 
   static get renderer () { return render; }
 

@@ -2,6 +2,7 @@ import { TemplateLite } from '@tjmonsi/element-lite/mixins/template-lite.js';
 import { render, html } from 'lit-html';
 import { subscribe, unsubscribe } from '../../../../utils/state.js';
 import { template } from './template.js';
+import '../project-sidebar/index.js';
 import style from './style.styl';
 // import '../../smart-components/navigation-loader/index.js';
 // import '../../components/header-navigation/index.js';
