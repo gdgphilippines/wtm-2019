@@ -7,6 +7,8 @@
   box-sizing: border-box
   height: calc(100vh)
 
+
+
 .parallax
   width: 100vw
   position: absolute
@@ -16,6 +18,30 @@
   bottom: 0
   transform: translateZ(-1px) scale(2)
   z-index: -1
+
+.parallax::after
+    content: " ";
+    width: 75%;
+    height: 5rem;
+    position: absolute;
+    bottom: -6px;
+    right: -25%;
+    background-color: #ffffff55;
+    border-radius: 0.5rem/0.25rem;
+    transform: skewX(-45deg);
+
+.parallax::before
+    content: " ";
+    width: 75%;
+    z-index: 1
+    width: 25%;
+    height: 10rem;
+    position: absolute;
+    bottom: -6px;
+    right: -25%;
+    background-color: #ffffff77;
+    border-radius: 0.5rem/0.25rem;
+    transform: skewX(-45deg);
 
 .parallax2
   width: 100vw
@@ -44,7 +70,7 @@
   height: 100vh
   position: absolute
   top: 0
-  background: linear-gradient(#00CCAAFF,#00CCFF33)
+  background-color: #00CCAAAA
   display: flex
   justify-content: center
   align-items: center

@@ -8,7 +8,7 @@ const template = (html, self) => function () {
         </svg>
       </button>
       <h1 class="title not-tablet-and-mobile">
-        <span>Women Techmakers</span>
+        <span>Xmen Techmakers</span>
         <span style="font-weight: lighter">Manila 2019</span>
       </h1>
       <div class="spacer">

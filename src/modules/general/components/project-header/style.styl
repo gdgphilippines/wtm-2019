@@ -20,6 +20,7 @@
   width: 130%
   position absolute
   border-radius: 0.5rem/0.25rem
+  
 .title::before
   z-index -10
   content: ""
@@ -31,38 +32,42 @@
   width: 150%
   position absolute
   border-radius: 0.5rem/0.25rem
+
 button::before
   z-index -10
   content: ""
-  transform: skewX(-25deg)
+  transform: skewX(-45deg)
   background-color: #ffffff
   top: -1rem
-  left: -2rem
+  left: -1.5rem
   padding: 2.5rem
   width: 2rem
   position absolute
   border-radius: 0.5rem/0.25rem
 
 .filled
-  background-color: white !important
+  @media screen and (min-width: 601px)
+    background-color: white !important
 .filled::before
-  opacity: 1 !important
+  @media screen and (min-width: 601px)
+    opacity: 1 !important
 .filled
-  ul.links
-    list-style none
-    display flex
-    align-items center
-    margin-right: 24px
-    
-    > li > a
-      text-decoration: none
-      padding: 24px
-      > span
-        color: #444
-      > span::after
-        background-color: cornflowerblue
-      > span::before
-        background-color: cornflowerblue
+  @media screen and (min-width: 601px)
+    ul.links
+      list-style none
+      display flex
+      align-items center
+      margin-right: 24px
+      
+      > li > a
+        text-decoration: none
+        padding: 24px
+        > span
+          color: #444
+        > span::after
+          background-color: cornflowerblue
+        > span::before
+          background-color: cornflowerblue
 
 
 .header
