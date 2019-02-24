@@ -8,7 +8,6 @@ import './sections/section-agenda/index.js';
 import './sections/section-map/index.js';
 import './sections/section-about-wtm/index.js';
 import './sections/section-sponsors/index.js';
-import './sections/section-csj/index.js';
 import '../../modules/general/components/lazy-picture/index.js';
 import { subscribe, unsubscribe } from '../../utils/state';
 

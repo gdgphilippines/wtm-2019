@@ -182,8 +182,7 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             topics: [
               {
                 title: 'Closing Keynote',
-                duration: '30 min',
-                topic: 'Gail Tan'
+                duration: '30 min'
               }
             ]
           }
