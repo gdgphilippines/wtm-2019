@@ -11,6 +11,7 @@ const template = html => html`
 <section-map></section-map>
 <section-agenda class="agenda"></section-agenda>
 <section-about-wtm class="about-wtm"></section-about-wtm>
+<!-- <section-csj class="csj"></section-csj> -->
 <!-- <section-sponsors></section-sponsors> -->
 
 `;

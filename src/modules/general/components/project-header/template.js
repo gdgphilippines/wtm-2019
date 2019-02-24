@@ -19,6 +19,7 @@ const template = (html, self) => function () {
         <li class="link-item"><a href="/?id=event-details" data-id="section-event-details" class="link"><span class="span">Event Details</span></a></li>
         <li class="link-item"><a href="/?id=agenda" data-id="section-agenda" class="link"><span class="span">Agenda</span></a></li>
         <li class="link-item"><a href="/?id=about-wtm" data-id="section-about-wtm" class="link"><span class="span">About WTM</span></a></li>
+        <li class="link-item"><a href="https://www.meetup.com/gdgphilippines/events/258563356/" rel="noopener" target="_blank" class="link"><span class="span">Cloud Study Jams</span></a></li>
       </ul>
 
     </header>

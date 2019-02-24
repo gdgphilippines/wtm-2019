@@ -19,12 +19,10 @@ const template = html => html`
       Google's Women Techmakers program provides visibility,
       community, and resources for women in technology
     </p>
-    <a class="button" target="_blank" rel="noopener" href="https://www.meetup.com/gdgphilippines/events/258563356/">
+    <a class="button" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1OFo4v-vKU_FNRr8Owuo0mCZMAkHHKl7rbyfumOSDb-A/edit?usp=drive_open">
       Register
     </a>
-    <!-- <lazy-picture class="logo-one" src="/assets/images/WT_logo_vertical_pos.png"></lazy-picture> -->
-    <!-- <h1 class="landing-title">Are you a</h1>
-    <h2 class="landing-subtitle">Filipina inventor?</h2> -->
+    <!-- https://www.meetup.com/gdgphilippines/events/258563356/ -->
   </div>
 </div>
 
