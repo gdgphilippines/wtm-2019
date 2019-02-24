@@ -1,7 +1,9 @@
 const template = html => html`
 
 <!-- Navigation -->
-<header><project-header></project-header></header>
+<header>
+  <project-header></project-header>
+</header>
 
 <!-- Sections -->
 <section-landing></section-landing>

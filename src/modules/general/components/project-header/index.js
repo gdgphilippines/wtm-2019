@@ -1,14 +1,13 @@
 import { TemplateLite } from '@tjmonsi/element-lite/mixins/template-lite.js';
+import { PropertiesLite } from '@tjmonsi/element-lite/mixins/properties-lite.js';
 import { render, html } from 'lit-html';
 import { subscribe, unsubscribe } from '../../../../utils/state.js';
 import { template } from './template.js';
 import '../project-sidebar/index.js';
 import style from './style.styl';
-// import '../../smart-components/navigation-loader/index.js';
-// import '../../components/header-navigation/index.js';
 const { HTMLElement, customElements } = window;
 
-class Component extends TemplateLite(HTMLElement) {
+class Component extends TemplateLite(PropertiesLite(HTMLElement)) {
   static get is () { return 'project-header'; }
 
   static get renderer () { return render; }
@@ -20,18 +19,18 @@ class Component extends TemplateLite(HTMLElement) {
 
   connectedCallback () {
     if (super.connectedCallback) super.connectedCallback();
-    subscribe('currentRoute', this._boundSetRoute);
+    subscribe('route', this._boundSetRoute);
   }
 
   disconnectedCallback () {
     if (super.disconnectedCallback) super.disconnectedCallback();
-    unsubscribe('currentRoute', this._boundSetRoute);
+    unsubscribe('route', this._boundSetRoute);
   }
 
   set route (route) {
     this.__route = route;
     this.requestRender();
-    this.style.display = route === '/' ? 'none' : '';
+    this.style.display = route === '/' ? '' : '';
   }
 
   get route () {
@@ -56,6 +55,10 @@ class Component extends TemplateLite(HTMLElement) {
     await import('../project-sidebar/index.js');
     const sidebar = document.querySelector('project-sidebar');
     sidebar.close();
+  }
+
+  navigate ({ target: el }) {
+
   }
 }
 

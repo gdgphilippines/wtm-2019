@@ -15,10 +15,10 @@ const template = (html, self) => function () {
       </div>
       <navigation-wrapper>
         <ul class="links not-mobile">
-          <li><a id="home-link" class="active"><span>Home</span></a></li>
-          <li><a id="event-details-link"><span>Event Details</span></a></li>
-          <li><a id="agenda-link"><span>Agenda</span></a></li>
-          <li><a id="about-wtm-link"><span>About WTM</span></a></li>
+          <li><a href="/?id=home-link" class="active">Home</a></li>
+          <li><a href="/?id=event-details-link">Event Details</a></li>
+          <li><a href="/?id=agenda-link">Agenda</a></li>
+          <li><a href="/?id=about-wtm-link">About WTM</a></li>
         </ul>
       </navigation-wrapper>
     </header>
