@@ -20,7 +20,7 @@
   width: 130%
   position absolute
   border-radius: 0.5rem/0.25rem
-  
+
 .title::before
   z-index -10
   content: ""
@@ -58,15 +58,15 @@ button::before
       display flex
       align-items center
       margin-right: 24px
-      
-      > li > a
+
+      > .link-item > .link
         text-decoration: none
         padding: 24px
-        > span
+        > .span
           color: #444
-        > span::after
+        > .span::after
           background-color: cornflowerblue
-        > span::before
+        > .span::before
           background-color: cornflowerblue
 
 
@@ -92,7 +92,7 @@ button::before
   box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.2)
   opacity: 0
   transition: 0.3s opacity
-  will-change: opacity 
+  will-change: opacity
 
 .header
   .title
@@ -147,8 +147,9 @@ ul.links
   display flex
   align-items center
   margin-right: 24px
-  
-  > li > a
+  z-index 1000
+
+  > .link-item > .link
     text-decoration: none
     padding: 1.5rem
     display: inline-block
@@ -158,10 +159,10 @@ ul.links
     color: white
     cursor pointer
 
-    > span 
+    > .span
       transition: color 0.3s
 
-    > span::after
+    > .span::after
         content: ""
         display: block
         background-color: white
@@ -175,7 +176,7 @@ ul.links
         top: 0
         transition: background-color 0.3s, transform 0.25s
 
-    > span::before
+    > .span::before
         content: ""
         position: absolute
         background-color: white
@@ -190,16 +191,16 @@ ul.links
         margin-top: 3.2rem
         top: 0
 
-  > li > a.active
+  > .link-item > .link.active
     opacity: 1
 
-    > span::after
+    > .span::after
       transform: scaleX(1)
       transform-origin: 0%
 
-  > li > a:hover
+  > .link-item > .link:hover
     opacity: 1
 
-    > span::before
+    > .span::before
       transform: scaleX(1)
       transform-origin: 0%

@@ -13,14 +13,14 @@ const template = (html, self) => function () {
       </h1>
       <div class="spacer">
       </div>
-      <navigation-wrapper>
-        <ul class="links not-mobile">
-          <li><a href="/?id=home-link" class="active">Home</a></li>
-          <li><a href="/?id=event-details-link">Event Details</a></li>
-          <li><a href="/?id=agenda-link">Agenda</a></li>
-          <li><a href="/?id=about-wtm-link">About WTM</a></li>
-        </ul>
-      </navigation-wrapper>
+
+      <ul class="links not-mobile">
+        <li class="link-item"><a href="/?id=home" data-id="section-landing" class="link active"><span class="span">Home</span></a></li>
+        <li class="link-item"><a href="/?id=event-details" data-id="section-event-details" class="link"><span class="span">Event Details</span></a></li>
+        <li class="link-item"><a href="/?id=agenda" data-id="section-agenda" class="link"><span class="span">Agenda</span></a></li>
+        <li class="link-item"><a href="/?id=about-wtm" data-id="section-about-wtm" class="link"><span class="span">About WTM</span></a></li>
+      </ul>
+
     </header>
   `;
 }.bind(self)();

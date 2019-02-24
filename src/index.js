@@ -6,7 +6,7 @@ const core = document.querySelector('core-lite');
 core.addEventListener('current-route-change', routeChanged);
 core.addEventListener('router-param-object-change', routeParamObjectChanged);
 core.addEventListener('query-object-change', queryObjectChanged);
-window.addEventListener('click', closeSidebar);
+// window.addEventListener('click', closeSidebar);
 const loader = document.querySelector('.core-lite-loader');
 
 function routeChanged ({ detail: route }) {
@@ -22,10 +22,10 @@ function queryObjectChanged ({ detail: query }) {
   updateState('query', query);
 }
 
-function closeSidebar ({ target }) {
-  const sidebar = document.querySelector('project-sidebar');
-  if (sidebar.__open && sidebar !== target) sidebar.close();
-}
+// function closeSidebar ({ target }) {
+//   const sidebar = document.querySelector('project-sidebar');
+//   if (sidebar.__open && sidebar !== target) sidebar.close();
+// }
 
 async function lazyLoad (fragment) {
   try {
@@ -46,8 +46,8 @@ async function lazyLoad (fragment) {
 }
 
 import('./modules/general/components/project-header/index.js').then(() => {
-  const header = document.querySelector('project-header');
-  header.addEventListener('click', closeSidebar);
+  // const header = document.querySelector('project-header');
+  // header.addEventListener('click', closeSidebar);
 });
 
 if (window.SnackerMessages && window.SnackerMessages.length) {

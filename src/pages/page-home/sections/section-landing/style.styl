@@ -1,13 +1,12 @@
 // @import '../../../../styles/general/typography.styl'
 // @import '../../../../styles/general/color.styl'
 // @import '../../../../styles/general/box-sizing.styl'
+@import '../../../../styles/general/button.styl'
 
 :host
   display block
   box-sizing: border-box
   height: calc(100vh)
-
-
 
 .parallax
   width: 100vw
@@ -76,6 +75,15 @@
   align-items: center
   z-index: -1
 
+.content
+  width: 100vw
+  height: calc(100vh - 64px)
+  position: absolute
+  top: 64px
+  display: flex
+  justify-content: center
+  align-items: center
+
 .overlay-content
   width: 80%
   transform: translateY(0rem)
@@ -85,10 +93,11 @@
 .landing-title
   color: white
   // font-size: 2rem (small)
-  margin-bottom: 0.5rem
+  // margin-bottom: 0.5rem
   font-weight: lighter
-  font-size: calc(1.25rem + 4vw)
+  font-size: 2rem
   padding: none
+  max-width 40vw
 
 .landing-subtitle
   color: white
@@ -96,6 +105,14 @@
   font-size: calc(2.75rem + 4vw)
   margin: 0
 
-lazy-picture
+.logo
   width: 100vw
   height: 100vh
+
+.logo-one
+  width 300px
+
+.button
+  background white
+  button()
+  color #085566;

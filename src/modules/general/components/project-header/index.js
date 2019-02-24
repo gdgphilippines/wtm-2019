@@ -29,7 +29,7 @@ class Component extends TemplateLite(PropertiesLite(HTMLElement)) {
 
   set route (route) {
     this.__route = route;
-    this.requestRender();
+    // this.requestRender();
     this.style.display = route === '/' ? '' : '';
   }
 
@@ -57,8 +57,25 @@ class Component extends TemplateLite(PropertiesLite(HTMLElement)) {
     sidebar.close();
   }
 
-  navigate ({ target: el }) {
+  fill () {
+    const header = this.shadowRoot.querySelector('.header');
+    header.classList.add('filled');
+  }
 
+  unfill () {
+    const header = this.shadowRoot.querySelector('.header');
+    header.classList.remove('filled');
+  }
+
+  setActive (active) {
+    const links = this.shadowRoot.querySelectorAll('.links .link-item .link');
+    for (let i = 0; i < links.length; i++) {
+      if (links[i].getAttribute('data-id') === active) {
+        links[i].classList.add('active');
+      } else {
+        links[i].classList.remove('active');
+      }
+    }
   }
 }
 

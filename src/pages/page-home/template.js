@@ -6,12 +6,12 @@ const template = html => html`
 </header>
 
 <!-- Sections -->
-<section-landing></section-landing>
-<section-event-details></section-event-details>
+<section-landing class="home"></section-landing>
+<section-event-details class="event-details"></section-event-details>
 <section-map></section-map>
-<section-agenda></section-agenda>
-<section-about-wtm></section-about-wtm>
-<section-sponsors></section-sponsors>
+<section-agenda class="agenda"></section-agenda>
+<section-about-wtm class="about-wtm"></section-about-wtm>
+<!-- <section-sponsors></section-sponsors> -->
 
 `;
 
