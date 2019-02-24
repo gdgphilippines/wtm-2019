@@ -1,11 +1,85 @@
 @import '../../../../styles/general/host-block.styl'
 @import '../../../../styles/general/spacing.styl'
 
+
+// custom classes
+.title
+  position relative
+  color: #00BBAA
+  background: linear-gradient(to right,#00aaaa, #00ccaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+.title::after
+  z-index -1
+  content: ""
+  transform: skewX(-45deg)
+  background-color: white
+  top: -2.2rem
+  left: -5rem
+  padding: 2.5rem
+  width: 130%
+  position absolute
+  border-radius: 0.5rem/0.25rem
+  
+.title::before
+  z-index -10
+  content: ""
+  transform: skewX(-45deg)
+  background-color: #ffffff33
+  top: -2.2rem
+  left: -5rem
+  padding: 2.5rem
+  width: 150%
+  position absolute
+  border-radius: 0.5rem/0.25rem
+
+button::before
+  z-index -10
+  content: ""
+  transform: skewX(-45deg)
+  background-color: #ffffff
+  top: -1rem
+  left: -1.5rem
+  padding: 2.5rem
+  width: 2rem
+  position absolute
+  border-radius: 0.5rem/0.25rem
+
+.filled
+  @media screen and (min-width: 601px)
+    background-color: white !important
+.filled::before
+  @media screen and (min-width: 601px)
+    opacity: 1 !important
+.filled
+  @media screen and (min-width: 601px)
+    ul.links
+      list-style none
+      display flex
+      align-items center
+      margin-right: 24px
+      
+      > li > a
+        text-decoration: none
+        padding: 24px
+        > span
+          color: #444
+        > span::after
+          background-color: cornflowerblue
+        > span::before
+          background-color: cornflowerblue
+
+
 .header
   display: flex
   align-items: center
   position: relative
+  width: 100vw
   height 4rem
+  z-index: 10
+  background-color: transparent
+  transition: 0.3s background-color
+  will-change: background-color
 
 .header::before
   position: absolute
@@ -15,7 +89,10 @@
   width: 100%
   height: 5px
   content: ""
-  box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.4)
+  box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.2)
+  opacity: 0
+  transition: 0.3s opacity
+  will-change: opacity 
 
 .header
   .title
@@ -46,11 +123,83 @@
 .mobile-only
   display: none
 
-  @media screen and (max-width: 700px)
+  @media screen and (max-width: 600px)
+    display: block
+
+.mobile-and-tablet-only
+  display: none
+
+  @media screen and (max-width: 800px)
     display: block
 
 .not-mobile
   display: block
 
-  @media screen and (max-width: 700px)
-    display: none
+  @media screen and (max-width: 600px)
+    display: none !important
+
+.not-tablet-and-mobile
+  @media screen and (max-width: 800px)
+    display none !important
+
+ul.links
+  list-style none
+  display flex
+  align-items center
+  margin-right: 24px
+  
+  > li > a
+    text-decoration: none
+    padding: 1.5rem
+    display: inline-block
+    transition: opacity 0.2s
+    position: relative
+    opacity: 0.8
+    color: white
+    cursor pointer
+
+    > span 
+      transition: color 0.3s
+
+    > span::after
+        content: ""
+        display: block
+        background-color: white
+        width: 100%
+        transform: scaleX(0)
+        transform-origin: 100%
+        will-change: transform
+        height: 0.2rem
+        margin-top: 0.5rem
+        border-radius: 0.5rem
+        top: 0
+        transition: background-color 0.3s, transform 0.25s
+
+    > span::before
+        content: ""
+        position: absolute
+        background-color: white
+        width: calc(100% - 3rem)
+        transform: scaleX(0)
+        transform-origin: 100%
+        border-radius: 0.5rem
+        left: 1.5rem
+        will-change: transform
+        transition: 0.25s transform
+        height: 0.2rem
+        margin-top: 3.2rem
+        top: 0
+
+  > li > a.active
+    opacity: 1
+
+    > span::after
+      transform: scaleX(1)
+      transform-origin: 0%
+
+  > li > a:hover
+    opacity: 1
+
+    > span::before
+      transform: scaleX(1)
+      transform-origin: 0%

@@ -4,12 +4,17 @@
 
 :host
   display block
-  padding 24px
   background $light
-  min-height 100vh
+  box-sizing: border-box
+  height 100vh
+  overflow-x: hidden
+  overflow-y: auto
+  perspective: 1px
+  scroll-behavior: smooth
 
-.login-header
-  padding 24px 24px 0
+header
+  position: sticky
+  top: 0
 
-.login-logo
-  width 150px
+project-header
+  position: absolute

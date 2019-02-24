@@ -14,8 +14,8 @@ const app = {
 };
 
 const theme = {
-  themeColor: '#000',
-  backgroundColor: '#000',
+  themeColor: '#fff',
+  backgroundColor: '#fff',
   favicon: '/assets/favicon.ico',
   webApp: {
     capable: 'yes',

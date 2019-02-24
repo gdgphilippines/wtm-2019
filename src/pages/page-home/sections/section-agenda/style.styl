@@ -1,0 +1,47 @@
+// @import '../../../../styles/general/typography.styl'
+// @import '../../../../styles/general/color.styl'
+// @import '../../../../styles/general/box-sizing.styl'
+
+:host
+  display block
+  box-sizing: border-box
+  height: 100vh
+  background-color: #fff
+  width: 100vw
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: white
+
+*
+  padding: 0
+  margin: 0
+
+.agenda-content
+  width: 80%
+  margin: auto
+  @media screen and (max-width: 600px)
+    width: 100vw
+
+  .item
+    display: flex
+    margin-bottom: 1.5rem
+
+  .time
+    flex-basis: 6rem
+    display: flex
+    flex-direction: column
+    align-items: center
+    h2,h4
+      color: cornflowerblue
+
+  .detail
+    display: flex
+    flex-direction: column
+
+    .duration
+      margin-top: 0.25rem
+      color: #777
+    .topic
+      margin-top: 0.75rem
+      color: #777

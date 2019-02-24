@@ -1,0 +1,101 @@
+// @import '../../../../styles/general/typography.styl'
+// @import '../../../../styles/general/color.styl'
+// @import '../../../../styles/general/box-sizing.styl'
+
+:host
+  display block
+  box-sizing: border-box
+  height: calc(100vh)
+
+
+
+.parallax
+  width: 100vw
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  transform: translateZ(-1px) scale(2)
+  z-index: -1
+
+.parallax::after
+    content: " ";
+    width: 75%;
+    height: 5rem;
+    position: absolute;
+    bottom: -6px;
+    right: -25%;
+    background-color: #ffffff55;
+    border-radius: 0.5rem/0.25rem;
+    transform: skewX(-45deg);
+
+.parallax::before
+    content: " ";
+    width: 75%;
+    z-index: 1
+    width: 25%;
+    height: 10rem;
+    position: absolute;
+    bottom: -6px;
+    right: -25%;
+    background-color: #ffffff77;
+    border-radius: 0.5rem/0.25rem;
+    transform: skewX(-45deg);
+
+.parallax2
+  width: 100vw
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  transform: translateZ(-1px) scale(2)
+  z-index: -1
+  background-color:#085566;
+  background-image:
+  linear-gradient(30deg, #0f8e8f 12%, transparent 12.5%, transparent 87%, #0f8e8f 87.5%, #0f8e8f),
+  linear-gradient(150deg, #0f8e8f 12%, transparent 12.5%, transparent 87%, #0f8e8f 87.5%, #0f8e8f),
+  linear-gradient(30deg, #0f8e8f 12%, transparent 12.5%, transparent 87%, #0f8e8f 87.5%, #0f8e8f),
+  linear-gradient(150deg, #0f8e8f 12%, transparent 12.5%, transparent 87%, #0f8e8f 87.5%, #0f8e8f),
+  linear-gradient(60deg, #07649e 25%, transparent 25.5%, transparent 75%, #07649e 75%, #07649e),
+  linear-gradient(60deg, #07649e 25%, transparent 25.5%, transparent 75%, #07649e 75%, #07649e);
+  background-size:160px 280px;
+  background-position: 0 0, 0 0, 80px 140px, 80px 140px, 0 0, 80px 140px;
+  height: 500vh
+
+
+.overlay
+  width: 100vw
+  height: 100vh
+  position: absolute
+  top: 0
+  background-color: #00CCAAAA
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: -1
+
+.overlay-content
+  width: 80%
+  transform: translateY(0rem)
+  transition: transform 0.5s ease-out, opacity 0.3s
+  opacity: 1
+
+.landing-title
+  color: white
+  // font-size: 2rem (small)
+  margin-bottom: 0.5rem
+  font-weight: lighter
+  font-size: calc(1.25rem + 4vw)
+  padding: none
+
+.landing-subtitle
+  color: white
+  // font-size: 3.34rem  (small)
+  font-size: calc(2.75rem + 4vw)
+  margin: 0
+
+lazy-picture
+  width: 100vw
+  height: 100vh
