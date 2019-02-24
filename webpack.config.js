@@ -74,12 +74,12 @@ const copyStatics = {
   ]
 };
 
-if (IS_DEV_SERVER) {
-  copyStatics.copyPolyfills.push({
-    from: resolve(__dirname, './src/service-worker.js'),
-    to: 'service-worker.js'
-  });
-}
+// if (true) {
+copyStatics.copyPolyfills.push({
+  from: resolve(__dirname, './src/service-worker.js'),
+  to: 'service-worker.js'
+});
+// }
 
 const shared = env => {
   const IS_MODULE_BUILD = env.BROWSERS === 'module';
@@ -91,7 +91,10 @@ const shared = env => {
     new BundleAnalyzerPlugin({
       reportFilename: '_bundle-report.html',
       defaultSizes: 'gzip',
-      statsFilename: '_bundle-stats.json'
+      statsFilename: '_bundle-stats.json',
+      openAnalyzer: IS_DEV_SERVER,
+      analyzerMode: IS_DEV_SERVER ? 'server' : 'disabled',
+      generateStatsFile: !IS_DEV_SERVER
     })
   ];
 
