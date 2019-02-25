@@ -45,6 +45,12 @@ class Component extends TemplateLite(PropertiesLite(HTMLElement)) {
     this.route = route;
   }
 
+  triggerScroll(params){
+    console.log(params)
+    window.history.replaceState(params,params,"?id=" + params)
+    window.onload()
+  }
+
   async openSidebar () {
     await import('../project-sidebar/index.js');
     const sidebar = document.querySelector('project-sidebar');
