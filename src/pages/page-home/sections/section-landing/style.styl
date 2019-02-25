@@ -38,13 +38,13 @@
     position: absolute;
     bottom: -6px;
     right: -25%;
-    background-color: #ffffff77;
+    background-color: white
     border-radius: 0.5rem/0.25rem;
     transform: skewX(-45deg);
 
 .parallax2
   width: 100vw
-  position: absolute
+  position: fixed
   top: 0
   left: 0
   right: 0
@@ -61,7 +61,7 @@
   linear-gradient(60deg, #07649e 25%, transparent 25.5%, transparent 75%, #07649e 75%, #07649e);
   background-size:160px 280px;
   background-position: 0 0, 0 0, 80px 140px, 80px 140px, 0 0, 80px 140px;
-  height: 500vh
+  height: 600vh
 
 
 .overlay
@@ -69,7 +69,8 @@
   height: 100vh
   position: absolute
   top: 0
-  background-color: #00CCAAAA
+  // background-color: #00CCAAAA
+  background-color: #4285f4AA
   display: flex
   justify-content: center
   align-items: center
@@ -95,9 +96,10 @@
   // font-size: 2rem (small)
   // margin-bottom: 0.5rem
   font-weight: lighter
-  font-size: 2rem
+  font-size: calc(1rem + 2vw)
   padding: none
-  max-width 40vw
+  width: 80vw
+  max-width 48rem
 
 .landing-subtitle
   color: white
@@ -115,4 +117,17 @@
 .button
   background white
   button()
-  color #085566;
+  // normalize bottom padding; bottom padding appears larger
+  padding: 16px 16px 11px 16px
+  color: #4285f4
+
+
+lazy-picture
+  position: absolute
+  transition: opacity .5s ease-in
+  opacity: 1
+  top: 0
+  left: 0
+
+lazy-picture + lazy-picture
+  opacity: 0
