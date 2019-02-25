@@ -2,7 +2,7 @@ const template = html => html`
   <a name="event-details"></a>
   <div class="details-content">
     <img class="details-logo" src="/assets/images/WT_logo_vertical_pos.png">
-    <h1 class="theme"> "Building a New Horizon" </h1>
+    <h2 class="theme">Developing borderless relation, Empowering limitless possibilities</h2>
     <br>
     <div class="sub-details">
       <div class="item">
