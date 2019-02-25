@@ -7,70 +7,83 @@ import './sections/section-event-details/index.js';
 import './sections/section-agenda/index.js';
 import './sections/section-map/index.js';
 import './sections/section-about-wtm/index.js';
+import './sections/section-csj/index.js';
 import './sections/section-sponsors/index.js';
+import './sections/section-footer/index.js';
 import '../../modules/general/components/lazy-picture/index.js';
 import { subscribe, unsubscribe } from '../../utils/state';
 
 const { HTMLElement, customElements } = window;
 
 class Page extends TemplateLite(HTMLElement) {
-  static get is () { return 'page-home'; }
+  static get is() { return 'page-home'; }
 
-  static get properties () {
+  static get properties() {
     return {
       vh: {
         type: Number
       },
-      homeTop: {
-        type: Number
-      },
-      eventDetailsTop: {
-        type: Number
-      },
-      agendaTop: {
-        type: Number
-      },
-      aboutWtmTop: {
-        type: Number
-      }
     };
   }
 
-  constructor () {
+  constructor() {
     super();
     this._boundSetQuery = this._setQuery.bind(this);
     this._boundScroll = this.scroll.bind(this);
   }
 
-  connectedCallback () {
+  connectedCallback() {
     if (super.connectedCallback) super.connectedCallback();
-    subscribe('query', this._boundSetQuery);
-    this.header = this.shadowRoot.querySelector('project-header');
-    this.components = {
-      'section-landing': 0,
-      'section-event-details': 0,
-      'section-agenda': 0,
-      'section-about-wtm': 0
-    };
 
-    for (let i in this.components) {
-      this.components[i] = this.shadowRoot.querySelector(i).offsetTop;
-    }
-    this.scrollCalc = false;
-    this.addEventListener('scroll', this._boundScroll);
+    // To prevent page reload when clicking links from navigation bar
+    this.initializeQueryNavigation()
+
+    /* To avoid wrong values (e.g. offsetTop) reported by components on initialization,
+     I inserted the initialization methods in setTimeout(()=>)
+     */
+    setTimeout(() => {
+      subscribe('query', this._boundSetQuery);
+      this.header = this.shadowRoot.querySelector('project-header');
+      this.components = {
+        'section-landing': 0,
+        'section-event-details': 0,
+        'section-agenda': 0,
+        'section-about-wtm': 0
+      };
+
+      for (let i in this.components) {
+        this.components[i] = this.shadowRoot.querySelector(i).offsetTop;
+      }
+      this.scrollCalc = false;
+      this.addEventListener('scroll', this._boundScroll);
+    }, 250)
+
   }
 
-  disconnectedCallback () {
+  // To prevent page reload when clicking links from navigation bar
+  initializeQueryNavigation() {
+    window.onload = (e) => {
+      var url_string = window.location.href
+      var url = new URL(url_string);
+      var page = url.searchParams.get("id");
+      if(page!=null)
+      this.navigate(page)
+    }
+  }
+
+  disconnectedCallback() {
     if (super.disconnectedCallback) super.disconnectedCallback();
     unsubscribe('query', this._boundSetQuery);
     this.removeEventListener('scroll', this._boundScroll);
   }
 
-  _setQuery ({ id }) {
-    this.navigate(id);
-  }
+  
+  _setQuery({ id }) {
+    // initializeQueryNavigation as alternative to prevent page reload when clicking links from navigation bar
+    //  this.navigate(id);
+   }
 
-  navigate (string) {
+  navigate(string) {
     if (string) {
       const el = this.shadowRoot.querySelector(`.${string}`);
       if (el) el.scrollIntoView();
@@ -78,34 +91,34 @@ class Page extends TemplateLite(HTMLElement) {
     this.scroll();
   }
 
-  scroll () {
+  scroll() {
     window.requestAnimationFrame(() => {
       if (!this.scrollCalc) {
         this.scrollCalc = true;
         const vh = this.clientHeight;
         const scrollPosY = window.pageYOffset || this.scrollTop;
         // console.log(scrollPosY, vh);
-        if (scrollPosY >= vh) {
+        if (scrollPosY >= vh - 50) {
           this.header.fill();
         } else {
           this.header.unfill();
         }
 
         for (let i in this.components) {
-          if (scrollPosY > this.components[i] - 50) {
+          if (scrollPosY > this.components[i] - 100) {
             this.header.setActive(i);
           }
         }
         setTimeout(() => {
           this.scrollCalc = false;
-        }, 500);
+        }, 125);
       }
     });
   }
 
-  static get renderer () { return render; }
+  static get renderer() { return render; }
 
-  template () {
+  template() {
     return html`<style>${style.toString()}</style>${template(html)}`;
   }
 }

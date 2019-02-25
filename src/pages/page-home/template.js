@@ -10,8 +10,14 @@ const template = html => html`
 <section-event-details class="event-details"></section-event-details>
 <section-map></section-map>
 <section-agenda class="agenda"></section-agenda>
+<section-csj></section-csj>
 <section-about-wtm class="about-wtm"></section-about-wtm>
 <!-- <section-sponsors></section-sponsors> -->
+
+<!-- -->
+<footer>
+  <section-footer></section-footer>
+</footer>
 
 `;
 
