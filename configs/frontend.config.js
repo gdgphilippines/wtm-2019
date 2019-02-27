@@ -1,5 +1,5 @@
 const app = {
-  title: 'Element-Lite Starter Kit',
+  title: 'Google Women Techmakers',
   shortName: 'Element-lite', // 12 characters max
   description: 'Element-lite starter kit',
   sentry: '',

@@ -1,6 +1,6 @@
 {
   "name": "element-lite-starter-kit",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "An element-lite enabled web app starter kit for projects. It includes Firebase as a default database well.",
   "main": "index.js",
   "scripts": {
@@ -12,10 +12,12 @@
     "webpack-dev": "./node_modules/.bin/webpack --env.BROWSERS=module --mode=development --watch",
     "webpack-prod": "./node_modules/.bin/webpack --mode=production",
     "webpack-prod-module": "./node_modules/.bin/webpack --mode=production --env.BROWSERS=module",
+    "inject-prod": "node ./utils/inject-prod",
     "postinstall": "./delete.sh",
     "prestart": "./node_modules/.bin/npm-run-all --serial create-public",
     "start": "npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prod": "./node_modules/.bin/npm-run-all --serial create-public compile webpack-prod webpack-prod-module inject-prod"
   },
   "keywords": [
     "element-lite",
@@ -102,7 +104,10 @@
     "worker-loader": "^2.0.0"
   },
   "flat": true,
-  "sideEffects": false,
+  "sideEffects": [
+    "./src/modules/**/**/*.js",
+    "./src/pages/**/**/*.js"
+  ],
   "size-limit": [],
   "semistandard": {
     "parser": "babel-eslint",

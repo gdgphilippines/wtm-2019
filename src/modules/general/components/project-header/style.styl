@@ -3,12 +3,18 @@
 
 
 // custom classes
+
 .title
   position relative
   color: #00BBAA
-  background: linear-gradient(to right,#00aaaa, #00ccaa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  display: flex
+  align-items: center
+.title
+  .title-text
+    background: linear-gradient(to right,#00ccaa, #4285f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 0.65rem
 .title::after
   z-index -1
   content: ""
@@ -16,11 +22,11 @@
   background-color: white
   top: -2.2rem
   left: -5rem
-  padding: 2.5rem
+  padding: 2.75rem 1rem
   width: 130%
   position absolute
   border-radius: 0.5rem/0.25rem
-  
+
 .title::before
   z-index -10
   content: ""
@@ -28,10 +34,13 @@
   background-color: #ffffff33
   top: -2.2rem
   left: -5rem
-  padding: 2.5rem
+  padding: 2.75rem 1rem
   width: 150%
   position absolute
   border-radius: 0.5rem/0.25rem
+
+.header-image-logo
+  width: 3rem
 
 button::before
   z-index -10
@@ -44,30 +53,36 @@ button::before
   width: 2rem
   position absolute
   border-radius: 0.5rem/0.25rem
-
-.filled
-  @media screen and (min-width: 601px)
-    background-color: white !important
+    
 .filled::before
   @media screen and (min-width: 601px)
     opacity: 1 !important
 .filled
   @media screen and (min-width: 601px)
+    background-color: white !important
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2) !important
+
     ul.links
       list-style none
       display flex
       align-items center
       margin-right: 24px
-      
-      > li > a
+
+      .register
+        // opacity: 1 !important
+        // background-color: #4285f433 !important
+        span
+          color: #4285f4 !important
+
+      > .link-item > .link
         text-decoration: none
-        padding: 24px
-        > span
+        padding: 24px 18px
+        > .span
           color: #444
-        > span::after
-          background-color: cornflowerblue
-        > span::before
-          background-color: cornflowerblue
+        > .span::after
+          background-color: #4285f4
+        > .span::before
+          background-color: #4285f4
 
 
 .header
@@ -78,8 +93,10 @@ button::before
   height 4rem
   z-index: 10
   background-color: transparent
-  transition: 0.3s background-color
+  transition: 0.3s background-color, 0.3s box-shadow
   will-change: background-color
+  overflow: hidden
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0)
 
 .header::before
   position: absolute
@@ -92,13 +109,13 @@ button::before
   box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.2)
   opacity: 0
   transition: 0.3s opacity
-  will-change: opacity 
+  will-change: opacity
 
 .header
   .title
     margin: 0
     padding-left: $small
-    font-size 1.5rem
+    font-size 1.4rem
 
   .spacer
     flex: 1
@@ -147,10 +164,16 @@ ul.links
   display flex
   align-items center
   margin-right: 24px
-  
-  > li > a
+  z-index 1000
+
+  .register
+    font-weight: bold
+    
+    
+
+  > .link-item > .link
     text-decoration: none
-    padding: 1.5rem
+    padding: 24px 18px
     display: inline-block
     transition: opacity 0.2s
     position: relative
@@ -158,10 +181,10 @@ ul.links
     color: white
     cursor pointer
 
-    > span 
+    > .span
       transition: color 0.3s
 
-    > span::after
+    > .span::after
         content: ""
         display: block
         background-color: white
@@ -175,31 +198,30 @@ ul.links
         top: 0
         transition: background-color 0.3s, transform 0.25s
 
-    > span::before
+    > .span::before
         content: ""
         position: absolute
         background-color: white
-        width: calc(100% - 3rem)
+        width: calc(100% - 2.3rem)
         transform: scaleX(0)
         transform-origin: 100%
         border-radius: 0.5rem
-        left: 1.5rem
         will-change: transform
         transition: 0.25s transform
         height: 0.2rem
         margin-top: 3.2rem
         top: 0
 
-  > li > a.active
+  > .link-item > .link.active
     opacity: 1
 
-    > span::after
+    > .span::after
       transform: scaleX(1)
       transform-origin: 0%
 
-  > li > a:hover
+  > .link-item > .link:hover
     opacity: 1
 
-    > span::before
+    > .span::before
       transform: scaleX(1)
       transform-origin: 0%

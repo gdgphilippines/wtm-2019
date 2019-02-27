@@ -8,19 +8,24 @@ const template = (html, self) => function () {
         </svg>
       </button>
       <h1 class="title not-tablet-and-mobile">
+        <img class="header-image-logo" src="/assets/images/WT_logo.png">
+        <div class="title-text">
         <span>Women Techmakers</span>
         <span style="font-weight: lighter">Manila 2019</span>
+        </div>
       </h1>
       <div class="spacer">
       </div>
-      <navigation-wrapper>
-        <ul class="links not-mobile">
-          <li><a id="home-link" class="active"><span>Home</span></a></li>
-          <li><a id="event-details-link"><span>Event Details</span></a></li>
-          <li><a id="agenda-link"><span>Agenda</span></a></li>
-          <li><a id="about-wtm-link"><span>About WTM</span></a></li>
-        </ul>
-      </navigation-wrapper>
+
+      <ul class="links not-mobile">
+        <li class="link-item"><a @click=${e => this.triggerScroll('home')} data-id="section-landing" class="link active"><span class="span">Home</span></a></li>
+        <li class="link-item"><a @click=${e => this.triggerScroll('event-details')} data-id="section-event-details" class="link"><span class="span">Event Details</span></a></li>
+        <li class="link-item"><a @click=${e => this.triggerScroll('agenda')} data-id="section-agenda" class="link"><span class="span">Agenda</span></a></li>
+        <li class="link-item"><a @click=${e => this.triggerScroll('about-wtm')} data-id="section-about-wtm" class="link"><span class="span">About WTM</span></a></li>
+        <li class="link-item"><a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1OFo4v-vKU_FNRr8Owuo0mCZMAkHHKl7rbyfumOSDb-A/edit?usp=drive_open" class="link register"><span class="span">Register</span></a></li>
+        <!-- <li class="link-item"><a href="https://www.meetup.com/gdgphilippines/events/258563356/" rel="noopener" target="_blank" class="link"><span class="span">Cloud Study Jams</span></a></li> -->
+      </ul>
+
     </header>
   `;
 }.bind(self)();

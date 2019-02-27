@@ -1,13 +1,12 @@
 // @import '../../../../styles/general/typography.styl'
 // @import '../../../../styles/general/color.styl'
 // @import '../../../../styles/general/box-sizing.styl'
+@import '../../../../styles/general/button.styl'
 
 :host
   display block
   box-sizing: border-box
   height: calc(100vh)
-
-
 
 .parallax
   width: 100vw
@@ -39,13 +38,13 @@
     position: absolute;
     bottom: -6px;
     right: -25%;
-    background-color: #ffffff77;
+    background-color: white
     border-radius: 0.5rem/0.25rem;
     transform: skewX(-45deg);
 
 .parallax2
   width: 100vw
-  position: absolute
+  position: fixed
   top: 0
   left: 0
   right: 0
@@ -62,7 +61,7 @@
   linear-gradient(60deg, #07649e 25%, transparent 25.5%, transparent 75%, #07649e 75%, #07649e);
   background-size:160px 280px;
   background-position: 0 0, 0 0, 80px 140px, 80px 140px, 0 0, 80px 140px;
-  height: 500vh
+  height: 600vh
 
 
 .overlay
@@ -70,11 +69,21 @@
   height: 100vh
   position: absolute
   top: 0
-  background-color: #00CCAAAA
+  // background-color: #00CCAAAA
+  background-color: #4285f4AA
   display: flex
   justify-content: center
   align-items: center
   z-index: -1
+
+.content
+  width: 100vw
+  height: calc(100vh - 64px)
+  position: absolute
+  top: 64px
+  display: flex
+  justify-content: center
+  align-items: center
 
 .overlay-content
   width: 80%
@@ -85,10 +94,12 @@
 .landing-title
   color: white
   // font-size: 2rem (small)
-  margin-bottom: 0.5rem
+  // margin-bottom: 0.5rem
   font-weight: lighter
-  font-size: calc(1.25rem + 4vw)
+  font-size: calc(1rem + 2vw)
   padding: none
+  width: 80vw
+  max-width 48rem
 
 .landing-subtitle
   color: white
@@ -96,6 +107,27 @@
   font-size: calc(2.75rem + 4vw)
   margin: 0
 
-lazy-picture
+.logo
   width: 100vw
   height: 100vh
+
+.logo-one
+  width 300px
+
+.button
+  background white
+  button()
+  // normalize bottom padding; bottom padding appears larger
+  padding: 16px 16px 11px 16px
+  color: #4285f4
+
+
+lazy-picture
+  position: absolute
+  transition: opacity .5s ease-in
+  opacity: 1
+  top: 0
+  left: 0
+
+lazy-picture + lazy-picture
+  opacity: 0
