@@ -9,18 +9,18 @@ const template = html => html`
     src="/assets/images/accenture.jpg"
     alt="GDG Philippines WTM">
 </lazy-picture>
-<lazy-picture
-    class="logo"
-    cover center
-    src="/assets/images/beng.jpg"
-    alt="GDG Philippines WTM">
-</lazy-picture>
-<lazy-picture
-    class="logo"
-    cover center
-    src="/assets/images/rebecca.jpg"
-    alt="GDG Philippines WTM">
-</lazy-picture>
+
+
+
+
+
+
+
+
+
+
+ 
+
 <lazy-picture
     class="logo"
     cover center
