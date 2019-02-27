@@ -40,7 +40,7 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
               {
                 title: 'Opening Remarks, Keynote',
                 duration: '15 min',
-                topic: 'Representative from the Department of Science and Technology'
+                topic: ''
               }
             ]
           },
