@@ -1,7 +1,5 @@
 const template = html => html`
 <a name="landing"></a>
-<div class="parallax2">
-</div>
 <div class="parallax">
 <lazy-picture
     class="logo"

@@ -19,7 +19,8 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             topics: [
               {
                 title: 'Registration',
-                duration: '1 hour'
+                duration: '1 hour',
+                topic: ''
               }
             ]
           },
@@ -29,7 +30,8 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             topics: [
               {
                 title: 'Energizer',
-                duration: '15 min'
+                duration: '15 min',
+                topic: ''
               }
             ]
           },
@@ -51,7 +53,7 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
               {
                 title: 'Inspirational Talk',
                 duration: '30 min',
-                topic: 'Sujin Lee'
+                topic: 'Valenice Balace, CEO of Honesty Apps; Product Manager at JG Summit Holdings Inc.'
               }
             ]
           },
@@ -82,9 +84,9 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             timeSpan: 'AM',
             topics: [
               {
-                title: 'Inspirational Talk',
+                title: 'Tech Talk (Architecture and Process in Software Development',
                 duration: '30 min',
-                topic: 'Valenice Balace, CEO of Honesty Apps'
+                topic: 'Ria Lu, Studio Director of First Foundry'
               }
             ]
           },
@@ -94,7 +96,8 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             topics: [
               {
                 title: 'Morning Break',
-                duration: '15 min'
+                duration: '15 min',
+                topic: ''
               }
             ]
           },
@@ -115,7 +118,8 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             topics: [
               {
                 title: 'Lunch',
-                duration: '1 hr'
+                duration: '1 hr',
+                topic: ''
               }
             ]
           },
@@ -124,9 +128,9 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             timeSpan: 'PM',
             topics: [
               {
-                title: 'Tech Talk',
+                title: 'Sponsors Talk',
                 duration: '30 min',
-                topic: 'Ria Lu, Studio Director of First Foundry'
+                topic: 'Eclaro Philippines'
               }
             ]
           },
@@ -162,7 +166,8 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             topics: [
               {
                 title: 'Afternoon Break',
-                duration: '30 min'
+                duration: '30 min',
+                topic: ''
               }
             ]
           },
@@ -172,7 +177,8 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             topics: [
               {
                 title: 'Awarding of Certificate to Speakers and Sponsors/ Raffle/ Games',
-                duration: '30 min'
+                duration: '30 min',
+                topic: ''
               }
             ]
           },
@@ -182,7 +188,8 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             topics: [
               {
                 title: 'Closing Keynote',
-                duration: '30 min'
+                duration: '30 min',
+                topic: ''
               }
             ]
           }
