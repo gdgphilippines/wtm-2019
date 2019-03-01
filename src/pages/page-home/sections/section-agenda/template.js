@@ -16,7 +16,7 @@ const template = (html, self) => function () {
             <div class="topic-detail">
               <h3 class="topic-title">${topic.title}</h3>
               <span class="duration">${topic.duration}</span>
-              <span class="topic">${topic.topic}</span>
+              <span class="topic">${topic.topic != "" ? '/' : ''} ${topic.topic}</span>
             </div>
           `)}
         </div>
