@@ -12,7 +12,7 @@ const template = html => html`
 <section-agenda class="agenda"></section-agenda>
 <section-csj></section-csj>
 <section-about-wtm class="about-wtm"></section-about-wtm>
-<!-- <section-sponsors></section-sponsors> -->
+<section-sponsors></section-sponsors>
 
 <!-- -->
 <footer>
