@@ -2,7 +2,9 @@ const template = (html, self) => function () {
   const { schedule } = this;
   return html`
   
-  
+  <!-- <div class="modal">
+    <h1>Hello</h1>
+  </div> -->
   <a name="agenda"></a>
   <div class="agenda-content">
     ${schedule ? schedule.map(item => html`
