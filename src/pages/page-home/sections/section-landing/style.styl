@@ -7,16 +7,11 @@
   display block
   box-sizing: border-box
   height: calc(100vh)
+  max-width: 100vw
+  overflow hidden
 
 .parallax
   width: 100vw
-  position: absolute
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  transform: translateZ(-1px) scale(2)
-  z-index: -1
 
 .parallax::after
     content: " ";
@@ -53,7 +48,6 @@
   display: flex
   justify-content: center
   align-items: center
-  z-index: -1
 
 .content
   width: 100vw
@@ -86,12 +80,9 @@
   font-size: calc(2.75rem + 4vw)
   margin: 0
 
-.logo
+.slideshow-banner
   width: 100vw
   height: 100vh
-
-.logo-one
-  width 300px
 
 .button
   background white
