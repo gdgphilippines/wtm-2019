@@ -4,47 +4,47 @@ const template = html => html`
   <h3>Powered by</h3>
   <div class="logo-container">
     <lazy-picture class="main-sponsor"
-      src="/assets/sponsor-logos/Copy of google.png"
+      src="/assets/images/Copy_of_google.png"
       alt="Google">
     </lazy-picture>
   </div>
   <h3>Co-Presented by</h3>
   <div class="logo-container">
     <lazy-picture class="main-sponsor-wide"
-        src="/assets/sponsor-logos/Acc_Technology_Lockup_BLK.png"
+        src="/assets/images/Acc_Technology_Lockup_BLK.png"
         alt="Accenture">
     </lazy-picture>
   </div>
   <h3>Made Possible by</h3>
   <div class="logo-container">
     <lazy-picture class="sponsor-logo"
-      src="/assets/sponsor-logos/Copy of Globe Vector Logo CMYK Pos V2.png"
+      src="/assets/images/Copy_of_Globe_Vector_Logo_CMYK_Pos_V2.png"
       alt="Globe">
     </lazy-picture>
     <lazy-picture class="sponsor-logo"
-      src="/assets/sponsor-logos/Globe Labs-new-positive.png"
+      src="/assets/images/Globe_Labs-new-positive.png"
       alt="Globe Labs">
     </lazy-picture>
   </div>
   <h3>Special Thanks to</h3>
   <div class="logo-container">
     <lazy-picture class="sponsor-logo"
-      src="/assets/sponsor-logos/Copy of bdj logo_pink.png"
+      src="/assets/images/Copy_of_bdj_logo_pink.png"
       alt="BDJ">
     </lazy-picture>
     <lazy-picture class="sponsor-logo"
-      src="/assets/sponsor-logos/Celeteque DermoScience_1.jpg"
+      src="/assets/images/Celeteque_DermoScience_1.jpg"
       alt="Celeteque">
     </lazy-picture>
   </div>
   <h3>Official Media Partners</h3>
   <div class="logo-container">
     <lazy-picture class="sponsor-logo"
-      src="/assets/sponsor-logos/Copy of ANC_logo_reg_FINAL.JPG"
+      src="/assets/images/Copy_of_ANC_logo_reg_FINAL.JPG"
       alt="ANC">
     </lazy-picture>
     <lazy-picture class="sponsor-logo-narrow"
-      src="/assets/sponsor-logos/Copy of wheninmanila.png"
+      src="/assets/images/Copy_of_wheninmanila.png"
       alt="Celeteque">
     </lazy-picture>
   </div>
