@@ -156,7 +156,7 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
               {
                 title: 'Workshop 5',
                 duration: '2 hr',
-                topic: 'Michelle Ang'
+                topic: 'Michie Ang'
               }
             ]
           },
