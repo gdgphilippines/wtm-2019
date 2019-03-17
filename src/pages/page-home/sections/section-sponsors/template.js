@@ -3,14 +3,14 @@ const template = html => html`
 <center>
   <h3>Powered by</h3>
   <div class="logo-container">
-    <lazy-picture class="sponsor-logo"
+    <lazy-picture class="main-sponsor"
       src="/assets/sponsor-logos/Copy of google.png"
       alt="Google">
     </lazy-picture>
   </div>
   <h3>Co-Presented by</h3>
   <div class="logo-container">
-    <lazy-picture class="sponsor-logo-wide"
+    <lazy-picture class="main-sponsor-wide"
         src="/assets/sponsor-logos/Acc_Technology_Lockup_BLK.png"
         alt="Accenture">
     </lazy-picture>
