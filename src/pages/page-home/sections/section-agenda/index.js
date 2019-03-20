@@ -53,7 +53,8 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
               {
                 title: 'Inspirational Talk',
                 duration: '30 min',
-                topic: 'Valenice Balace, CEO of Honesty Apps; Product Manager at JG Summit Holdings Inc.'
+                topic: 'Valenice Balace, CEO of Honesty Apps; Product Manager at JG Summit Holdings Inc.',
+                speaker: "0"
               }
             ]
           },
@@ -84,7 +85,7 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             timeSpan: 'AM',
             topics: [
               {
-                title: 'Tech Talk (Architecture and Process in Software Development',
+                title: 'Tech Talk (Architecture and Process in Software Development)',
                 duration: '30 min',
                 topic: 'Ria Lu, Studio Director of First Foundry'
               }
@@ -106,9 +107,31 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             timeSpan: 'AM',
             topics: [
               {
-                title: 'Workshop 1: I Am Remarkable',
-                duration: '1 hr, 15 min',
-                topic: 'Regine Anne Quinto, Pointwest'
+                title: 'Talk',
+                duration: '30 min',
+                topic: 'Deanne Dalisay'
+              }
+            ]
+          },
+          {
+            time: '11:15',
+            timeSpan: 'AM',
+            topics: [
+              {
+                title: 'Sponsors Talk',
+                duration: '30 min',
+                topic: 'Eclaro Philippines'
+              }
+            ]
+          },
+          {
+            time: '11:45',
+            timeSpan: 'AM',
+            topics: [
+              {
+                title: 'Android Masters Launch',
+                duration: '15 min',
+                topic: 'GDG Philippines and Eclaro Philippines'
               }
             ]
           },
@@ -128,35 +151,40 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             timeSpan: 'PM',
             topics: [
               {
-                title: 'Sponsors Talk',
-                duration: '30 min',
-                topic: 'Eclaro Philippines'
+                title: 'Workshop Discussion',
+                duration: '15 min',
+                topic: 'GDG Philippines'
               }
             ]
           },
           {
-            time: '1:30',
+            time: '1:15',
             timeSpan: 'PM',
             topics: [
               {
+                title: 'Workshop 1: I Am Remarkable',
+                duration: '2 hr 15 min',
+                topic: 'Regine Anne Quinto, Pointwest'
+              },
+              {
                 title: 'Workshop 2: Cloud Study Jams',
-                duration: '2 hr',
-                topic: 'Bernaline Decena'
+                duration: '2 hr 15 min',
+                topic: 'Berlyn Decena'
               },
               {
                 title: 'Workshop 3: Machine Learning',
-                duration: '2 hr',
-                topic: 'Kristine Adlaon'
+                duration: '2 hr 15 min',
+                topic: 'Kristine Adlaon, 2017 Google Women Techmakers Scholar'
               },
               {
                 title: 'Workshop 4: Introduce Web Toolkits to Data Visualisation in media company',
-                duration: '2 hr',
-                topic: 'Sujin Lee'
+                duration: '2 hr 15 min',
+                topic: 'Sujin Lee, Web Developer, Singapore Press'
               },
               {
                 title: 'Workshop 5',
-                duration: '2 hr',
-                topic: 'Michie Ang'
+                duration: '2 hr 15 min',
+                topic: 'Michie Ang, Co-Founder | Director, Women Who Code Manila'
               }
             ]
           },
@@ -189,11 +217,31 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
               {
                 title: 'Closing Keynote',
                 duration: '30 min',
-                topic: ''
+                topic: 'Myna Sabado'
               }
             ]
           }
         ]
+      },
+      speakers: {
+        type: Array,
+        value: [
+          {
+            id: 0,
+            name: "{{ Speaker name here }}",
+            position: "{{ position }}",
+            picture_url: "{{ picture url }}",
+            bio: `
+Line 1
+Line 2
+Line 3
+            `
+          }
+        ]
+      },
+      active_speaker: {
+        type: Number,
+        value: 0
       }
     };
   }
@@ -203,6 +251,18 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
   template () {
     return html`<style>${style.toString()}</style>${template(html, this)}`;
   }
+
+  hideModal(){
+    this.shadowRoot.querySelector('.modal').classList.add('hidden')
+  }
+
+  showModal(topic){
+    console.log(topic)
+    if(topic.speaker != undefined)
+      this.shadowRoot.querySelector('.modal').classList.remove('hidden')
+  }
+
+ 
 }
 
 if (!customElements.get(Page.is)) {

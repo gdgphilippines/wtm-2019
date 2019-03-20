@@ -14,6 +14,7 @@ class Page extends TemplateLite(HTMLElement) {
   template () {
     return html`<style>${style.toString()}</style>${template(html)}`;
   }
+
 }
 
 if (!customElements.get(Page.is)) {

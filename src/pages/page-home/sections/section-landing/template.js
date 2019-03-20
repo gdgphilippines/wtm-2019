@@ -1,27 +1,26 @@
 const template = html => html`
 <a name="landing"></a>
-<div class="parallax">
-<lazy-picture
-    class="slideshow-banner"
-    cover center
-    src="/assets/images/accenture.jpg"
-    alt="Accenture">
-</lazy-picture>
-<lazy-picture
-    class="slideshow-banner"
-    cover center
-    src="/assets/images/participants.jpg"
-    alt="WTM Participants">
-</lazy-picture>
-<lazy-picture
-    class="slideshow-banner"
-    cover center
-    src="/assets/images/speakers.jpg"
-    alt="WTM Speakers">
-</lazy-picture>
+<div class="slideshow-container">
+  <lazy-picture
+      class="slideshow-banner"
+      cover center
+      src="/assets/images/accenture.jpg"
+      alt="Accenture">
+  </lazy-picture>
+  <lazy-picture
+      class="slideshow-banner"
+      cover center
+      src="/assets/images/participants.jpg"
+      alt="WTM Participants">
+  </lazy-picture>
+  <lazy-picture
+      class="slideshow-banner"
+      cover center
+      src="/assets/images/speakers.jpg"
+      alt="WTM Speakers">
+  </lazy-picture>
 </div>
 <div class="overlay">
-
 </div>
 <div class="content">
   <div class="overlay-content">
