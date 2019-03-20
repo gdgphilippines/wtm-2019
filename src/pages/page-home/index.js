@@ -23,6 +23,12 @@ class Page extends TemplateLite(HTMLElement) {
       vh: {
         type: Number
       },
+      scrollCalc: {
+        type: Boolean
+      },
+      header: {
+        type: HTMLElement
+      }
     };
   }
 
@@ -44,6 +50,8 @@ class Page extends TemplateLite(HTMLElement) {
     setTimeout(() => {
       subscribe('query', this._boundSetQuery);
       this.header = this.shadowRoot.querySelector('project-header');
+      
+      
       this.components = {
         'section-landing': 0,
         'section-event-details': 0,
@@ -55,7 +63,45 @@ class Page extends TemplateLite(HTMLElement) {
         this.components[i] = this.shadowRoot.querySelector(i).offsetTop;
       }
       this.scrollCalc = false;
-      this.addEventListener('scroll', this._boundScroll);
+
+      // Early check (Temporary Hack)
+      const vh = window.innerHeight;
+      const scrollPosY = window.pageYOffset || this.scrollTop;
+        this.header = this.shadowRoot.querySelector('project-header');
+      if (scrollPosY >= vh - 50) {
+        this.header.fill();
+      } else {
+        this.header.unfill();
+      }
+
+
+      window.addEventListener('scroll', ()=>{
+        window.requestAnimationFrame(() => {
+
+          // Scroll Method (Temporary Hack)
+          if (!this.scrollCalc) {
+            this.scrollCalc = true;
+            const vh = window.innerHeight;
+            const scrollPosY = window.pageYOffset || this.scrollTop;
+              this.header = this.shadowRoot.querySelector('project-header');
+            if (scrollPosY >= vh - 50) {
+              this.header.fill();
+            } else {
+              this.header.unfill();
+            }
+            for (let i in this.components) {
+              if (scrollPosY > this.components[i] - 100) {
+                this.header.setActive(i);
+              }
+            }
+            setTimeout(() => {
+              this.scrollCalc = false;
+            }, 125);
+          }
+
+
+        });
+      });
     }, 250)
 
   }
@@ -74,7 +120,7 @@ class Page extends TemplateLite(HTMLElement) {
   disconnectedCallback() {
     if (super.disconnectedCallback) super.disconnectedCallback();
     unsubscribe('query', this._boundSetQuery);
-    this.removeEventListener('scroll', this._boundScroll);
+    window.removeEventListener('scroll', this.scroll);
   }
 
   
@@ -89,31 +135,6 @@ class Page extends TemplateLite(HTMLElement) {
       if (el) el.scrollIntoView();
     }
     this.scroll();
-  }
-
-  scroll() {
-    window.requestAnimationFrame(() => {
-      if (!this.scrollCalc) {
-        this.scrollCalc = true;
-        const vh = this.clientHeight;
-        const scrollPosY = window.pageYOffset || this.scrollTop;
-        // console.log(scrollPosY, vh);
-        if (scrollPosY >= vh - 50) {
-          this.header.fill();
-        } else {
-          this.header.unfill();
-        }
-
-        for (let i in this.components) {
-          if (scrollPosY > this.components[i] - 100) {
-            this.header.setActive(i);
-          }
-        }
-        setTimeout(() => {
-          this.scrollCalc = false;
-        }, 125);
-      }
-    });
   }
 
   static get renderer() { return render; }

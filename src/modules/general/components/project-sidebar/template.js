@@ -3,7 +3,7 @@ const template = (html, self) => function () {
   return html`
     <aside class="sidebar">
       <h1 class="title">
-        Logo
+        <!-- Add sidebar logo here-->
       </h1>
       <div class="spacer">
       </div>
