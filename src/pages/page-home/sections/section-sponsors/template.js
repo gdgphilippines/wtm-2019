@@ -49,7 +49,6 @@ const template = html => html`
     </lazy-picture>
   </div>
 </center>
-  
 
 `;
 export { template };
