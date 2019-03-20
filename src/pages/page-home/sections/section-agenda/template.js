@@ -24,7 +24,7 @@ const template = (html, self) => function () {
     `) : ''}
 
   </div>
-  <div class="modal hidden">
+  <div class="modal hidden" style="display: none !important">
     <header>
       <div class="speaker-photo"></div>
       <div class="speaker-main-detail">
