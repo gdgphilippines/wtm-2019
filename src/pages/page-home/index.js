@@ -49,6 +49,7 @@ class Page extends TemplateLite(HTMLElement) {
     setTimeout(() => {
       subscribe('query', this._boundSetQuery);
       this.header = this.shadowRoot.querySelector('project-header');
+
       this.components = {
         'section-landing': 0,
         'section-event-details': 0,
@@ -104,7 +105,10 @@ class Page extends TemplateLite(HTMLElement) {
       var urlString = window.location.href;
       var url = new URL(urlString);
       var page = url.searchParams.get('id');
-      if (page != null) this.navigate(page);
+
+      if (page != null) {
+        this.navigate(page);
+      }
     };
   }
 
