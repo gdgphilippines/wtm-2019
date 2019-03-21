@@ -26,7 +26,12 @@
 
   a
     text-decoration: none    
-    cursor pointer
+  
+  a.clickable
+    cursor: pointer
+
+  a.clickable:hover
+    opacity: 0.8
 
 
   .item
@@ -51,7 +56,7 @@
   .detail
     display: flex
     flex-direction: column
-    max-width: 60%
+    width: 60%
 
     .topic-detail
       margin-bottom: 1.5rem
@@ -67,11 +72,21 @@
       margin-top: 0.75rem
       color: #777
 
+.speakers
+  text-align: center
+  padding: 2rem
+  color: #444
+
+.speakers-grid
+  display: flex
+  justify-content center
+  flex-wrap: wrap
+
 .modal
+
   position: fixed
-  height: 100vh
   width 100%
-  max-height: 30rem
+  max-height: 35rem
   max-width: 30rem
   left: 50%
   top: 50%
@@ -84,7 +99,7 @@
   z-index 100
   box-shadow: 0px 0.5rem 2rem #00000044
   color: #333
-  overflow: hidden
+  overflow: auto
   display: flex
   flex-direction: column
 
@@ -99,13 +114,20 @@
   padding 1rem
   background-color: #00ccaa
   background: linear-gradient(to right,#00ccaa, #4285f4);
+  position: sticky
+  top: 0
+  
 
-.speaker-photo
+.speaker-photo-container
   width: 8rem
   height: 8rem
   background-color: #ddd
   border-radius: 50%
   margin: auto
+  overflow hidden
+
+.speaker-photo
+  width: 8rem
 
 .speaker-main-detail
   text-align: center
@@ -130,5 +152,22 @@
   opacity 0.8
 
 .speaker-details
-  padding: 1rem
-  flex-grow: 1
+  padding: 2rem
+
+.speaker-details > p
+  line-height: 1.5rem
+  text-align: justify
+
+.speakers-grid > .speaker-item
+  width: 20rem
+  padding 2rem
+  cursor pointer
+
+.speakers-grid > .speaker-item:hover
+  opacity 0.8
+
+.speakers-grid .speaker-name
+  color: #444 !important
+
+.speakers-grid .speaker-position
+  color: #888 !important
