@@ -35,7 +35,6 @@ class Page extends TemplateLite(HTMLElement) {
   constructor () {
     super();
     this._boundSetQuery = this._setQuery.bind(this);
-    this._boundScroll = this.scroll.bind(this);
   }
 
   connectedCallback () {
@@ -106,16 +105,17 @@ class Page extends TemplateLite(HTMLElement) {
       var urlString = window.location.href;
       var url = new URL(urlString);
       var page = url.searchParams.get('id');
+
       if (page != null) {
         this.navigate(page);
       }
+      
     };
   }
 
   disconnectedCallback () {
     if (super.disconnectedCallback) super.disconnectedCallback();
     unsubscribe('query', this._boundSetQuery);
-    window.removeEventListener('scroll', this.scroll);
   }
 
   _setQuery ({ id }) {
@@ -128,7 +128,9 @@ class Page extends TemplateLite(HTMLElement) {
       const el = this.shadowRoot.querySelector(`.${string}`);
       if (el) el.scrollIntoView();
     }
-    this.scroll();
+    if (this.scroll) {
+      this.scroll();
+    }
   }
 
   static get renderer () { return render; }
