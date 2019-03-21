@@ -8,7 +8,6 @@ const { HTMLElement, customElements } = window;
 class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
   static get is () { return 'section-footer'; }
 
-
   static get renderer () { return render; }
 
   template () {

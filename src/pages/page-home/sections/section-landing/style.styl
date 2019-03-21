@@ -6,25 +6,52 @@
 :host
   display block
   box-sizing: border-box
-  height: calc(100vh)
+  height: 100vh
   max-width: 100vw
   overflow hidden
 
+.revealer
+  width: 100vw
+  height 100vh
+  background-color: white
+  z-index: 10
+  position absolute
+  will-change: transform
+  transform: translateY(0)
+  animation-name: revealer;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards
+
+@keyframes revealer {
+  0% {
+    transform: translateY(0)
+    }
+  99% {
+    transform: translateY(-100vh)
+  }
+  100% {
+    transform: translateY(-100vh)
+    display none
+  }
+}
+
 .slideshow-container
   max-width: 100vw
+  max-height: 100vh
+  overflow hidden
 
-.slideshow-container::after
+.content::after
     content: " ";
     width: 75%;
     height: 5rem;
     position: absolute;
     bottom: -1rem;
     right: -25%;
-    background-color: #ffffff66;
+    background-color: #ffffff22;
     border-radius: 0.5rem/0.25rem;
     transform: skewX(-45deg);
 
-.slideshow-container::before
+.content::before
     content: " ";
     width: 75%;
     z-index: 1
@@ -33,7 +60,7 @@
     position: absolute;
     bottom: -1rem;
     right: -25%;
-    background-color: #ffffff66
+    background-color: #ffffff44
     border-radius: 0.5rem/0.25rem;
     transform: skewX(-45deg);
 
@@ -73,25 +100,40 @@
   padding: none
   width: 80vw
   max-width 48rem
+  will-change: transform
+  animation-name: title-revealer;
+  animation-duration: 0.8s;
+  transform: translateY(5rem)
+  animation-fill-mode: forwards
+  line-height: 1.2
+  margin-top: 1rem
+  margin-bottom: 1rem
+
+@keyframes title-revealer {
+  0% {
+    transform: translateY(5rem)
+    }
+  100% {
+    transform: translateY(0)
+  }
+}
 
 .slideshow-banner
   width: 100vw
   height: 100vh
-
-.button
-  background white
-  button()
-  // normalize bottom padding; bottom padding appears larger
-  padding: 16px 16px 11px 16px
-  color: #4285f4
-
-
-lazy-picture
+  max-height: 100vh
+  overflow hidden
   position: absolute
   transition: opacity .5s ease-in
   opacity: 1
   top: 0
   left: 0
 
-lazy-picture + lazy-picture
+.button
+  background white
+  button()
+  padding: 16px 16px 11px 16px
+  color: #4285f4
+
+.slideshow-banner + .slideshow-banner
   opacity: 0

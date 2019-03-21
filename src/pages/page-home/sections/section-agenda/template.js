@@ -1,5 +1,5 @@
 const template = (html, self) => function () {
-  const { schedule, speakers, active_speaker } = this;
+  const { schedule, speakers, activeSpeaker } = this;
   return html`
 
   <a name="agenda"></a>
@@ -12,10 +12,10 @@ const template = (html, self) => function () {
         </div>
         <div class="detail">
           ${item.topics.map(topic => html`
-            <a class="topic-detail" @click="${e => this.showModal(topic)}">
+            <a class="topic-detail ${topic.speaker ? 'clickable' : ''}" @click="${topic.speaker ? e => this.showModal(topic.speaker) : ''}">
               <h3 class="topic-title">${topic.title}</h3>
               <span class="duration">${topic.duration}</span>
-              <span class="topic">${topic.topic != "" ? '/' : ''} ${topic.topic}</span>
+              <span class="topic">${topic.topic !== '' ? '/' : ''} ${topic.topic}</span>
             </a>
           `)}
         </div>
@@ -24,12 +24,37 @@ const template = (html, self) => function () {
     `) : ''}
 
   </div>
-  <div class="modal hidden" style="display: none !important">
+  <div class="speakers">
+    <h1>Speakers</h1>
+    <br>
+    <div class="speakers-grid">
+      ${speakers ? speakers.map(item => html`
+      <a class="speaker-item clickable" @click="${e => this.showModal(item.id)}">
+        <div class="speaker-photo-container">
+        <lazy-picture class="speaker-photo"
+          src="/assets/images/${item.pictureUrl}"
+          alt="Google">
+      </lazy-picture>
+        </div>
+        <div class="speaker-main-detail">
+          <h2 class="speaker-name">${item.name}</h2>
+          <h4 class="speaker-position">${item.position}</h4>
+        </div>
+      </a>
+      `) : ''}
+    </div>
+  </div>
+  <div class="modal hidden">
     <header>
-      <div class="speaker-photo"></div>
+      <div class="speaker-photo-container">
+      <lazy-picture class="speaker-photo"
+          src="/assets/images/${speakers ? speakers.find(item => item.id === activeSpeaker).pictureUrl : ''}"
+          alt="Google">
+      </lazy-picture>
+      </div>
       <div class="speaker-main-detail">
-        <h2 class="speaker-name">${speakers ? speakers.find(item => item.id == active_speaker).name:''}</h2>
-        <h4 class="speaker-position">${speakers ? speakers.find(item => item.id == active_speaker).position:''}</h4>
+        <h2 class="speaker-name">${speakers ? speakers.find(item => item.id === activeSpeaker).name : ''}</h2>
+        <h4 class="speaker-position">${speakers ? speakers.find(item => item.id === activeSpeaker).position : ''}</h4>
       </div>
       <div class="close-button">
         <a @click="${this.hideModal.bind(this)}">
@@ -40,8 +65,8 @@ const template = (html, self) => function () {
       </div>
     </header>
     <div class="speaker-details">
-      <p style="white-space: pre-wrap">
-      ${speakers ? speakers.find(item => item.id == active_speaker).bio:''}
+      <p>
+      ${speakers ? speakers.find(item => item.id === activeSpeaker).bio : ''}
       </p>
     </div>
 
