@@ -1,5 +1,6 @@
 const template = html => html`
 <a name="landing"></a>
+<div class="revealer"></div>
 <div class="slideshow-container">
   <lazy-picture
       class="slideshow-banner"
