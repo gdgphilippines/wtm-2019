@@ -109,7 +109,6 @@ class Page extends TemplateLite(HTMLElement) {
       if (page != null) {
         this.navigate(page);
       }
-      
     };
   }
 
