@@ -9,21 +9,21 @@ class Page extends TemplateLite(HTMLElement) {
 
   static get renderer () { return render; }
 
-  connectedCallback() {
+  connectedCallback () {
     if (super.connectedCallback) super.connectedCallback();
 
-    this.runSlideshow()
+    this.runSlideshow();
   }
 
-  runSlideshow(){
-    var current = 0,
-    slides = this.shadowRoot.querySelectorAll("lazy-picture");
+  runSlideshow () {
+    var current = 0;
+    var slides = this.shadowRoot.querySelectorAll('lazy-picture');
 
-    setInterval(function() {
+    setInterval(function () {
       for (var i = 0; i < slides.length; i++) {
         slides[i].style.opacity = 0;
       }
-      current = (current != slides.length - 1) ? current + 1 : 0;
+      current = (current !== slides.length - 1) ? current + 1 : 0;
       slides[current].style.opacity = 1;
     }, 3000);
   }

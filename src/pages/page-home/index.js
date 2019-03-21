@@ -16,9 +16,9 @@ import { subscribe, unsubscribe } from '../../utils/state';
 const { HTMLElement, customElements } = window;
 
 class Page extends TemplateLite(HTMLElement) {
-  static get is() { return 'page-home'; }
+  static get is () { return 'page-home'; }
 
-  static get properties() {
+  static get properties () {
     return {
       vh: {
         type: Number
@@ -32,17 +32,17 @@ class Page extends TemplateLite(HTMLElement) {
     };
   }
 
-  constructor() {
+  constructor () {
     super();
     this._boundSetQuery = this._setQuery.bind(this);
     this._boundScroll = this.scroll.bind(this);
   }
 
-  connectedCallback() {
+  connectedCallback () {
     if (super.connectedCallback) super.connectedCallback();
 
     // To prevent page reload when clicking links from navigation bar
-    this.initializeQueryNavigation()
+    this.initializeQueryNavigation();
 
     /* To avoid wrong values (e.g. offsetTop) reported by components on initialization,
      I inserted the initialization methods in setTimeout(()=>)
@@ -50,8 +50,7 @@ class Page extends TemplateLite(HTMLElement) {
     setTimeout(() => {
       subscribe('query', this._boundSetQuery);
       this.header = this.shadowRoot.querySelector('project-header');
-      
-      
+
       this.components = {
         'section-landing': 0,
         'section-event-details': 0,
@@ -67,23 +66,21 @@ class Page extends TemplateLite(HTMLElement) {
       // Early check (Temporary Hack)
       const vh = window.innerHeight;
       const scrollPosY = window.pageYOffset || this.scrollTop;
-        this.header = this.shadowRoot.querySelector('project-header');
+      this.header = this.shadowRoot.querySelector('project-header');
       if (scrollPosY >= vh - 50) {
         this.header.fill();
       } else {
         this.header.unfill();
       }
 
-
-      window.addEventListener('scroll', ()=>{
+      window.addEventListener('scroll', () => {
         window.requestAnimationFrame(() => {
-
           // Scroll Method (Temporary Hack)
           if (!this.scrollCalc) {
             this.scrollCalc = true;
             const vh = window.innerHeight;
             const scrollPosY = window.pageYOffset || this.scrollTop;
-              this.header = this.shadowRoot.querySelector('project-header');
+            this.header = this.shadowRoot.querySelector('project-header');
             if (scrollPosY >= vh - 50) {
               this.header.fill();
             } else {
@@ -98,38 +95,35 @@ class Page extends TemplateLite(HTMLElement) {
               this.scrollCalc = false;
             }, 125);
           }
-
-
         });
       });
-    }, 250)
-
+    }, 250);
   }
 
   // To prevent page reload when clicking links from navigation bar
-  initializeQueryNavigation() {
+  initializeQueryNavigation () {
     window.onload = (e) => {
-      var url_string = window.location.href
-      var url = new URL(url_string);
-      var page = url.searchParams.get("id");
-      if(page!=null)
-      this.navigate(page)
-    }
+      var urlString = window.location.href;
+      var url = new URL(urlString);
+      var page = url.searchParams.get('id');
+      if (page != null) {
+        this.navigate(page);
+      }
+    };
   }
 
-  disconnectedCallback() {
+  disconnectedCallback () {
     if (super.disconnectedCallback) super.disconnectedCallback();
     unsubscribe('query', this._boundSetQuery);
     window.removeEventListener('scroll', this.scroll);
   }
 
-  
-  _setQuery({ id }) {
+  _setQuery ({ id }) {
     // initializeQueryNavigation as alternative to prevent page reload when clicking links from navigation bar
     //  this.navigate(id);
-   }
+  }
 
-  navigate(string) {
+  navigate (string) {
     if (string) {
       const el = this.shadowRoot.querySelector(`.${string}`);
       if (el) el.scrollIntoView();
@@ -137,9 +131,9 @@ class Page extends TemplateLite(HTMLElement) {
     this.scroll();
   }
 
-  static get renderer() { return render; }
+  static get renderer () { return render; }
 
-  template() {
+  template () {
     return html`<style>${style.toString()}</style>${template(html)}`;
   }
 }

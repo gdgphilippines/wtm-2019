@@ -3,7 +3,6 @@ import { render, html } from 'lit-html';
 import { template } from './template.js';
 import style from './style.styl';
 
-
 const { HTMLElement, customElements } = window;
 
 class Page extends TemplateLite(HTMLElement) {
