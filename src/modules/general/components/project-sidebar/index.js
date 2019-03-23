@@ -20,11 +20,11 @@ class Component extends TemplateLite(HTMLElement) {
     return html`<style>${style.toString()}</style>${template(html, this)}`;
   }
 
-  triggerScroll(params){
-    console.log(params)
-    window.history.replaceState(params,params,"?id=" + params)
-    window.onload()
-    this.close()
+  triggerScroll (params) {
+    console.log(params);
+    window.history.replaceState(params, params, '?id=' + params);
+    window.onload();
+    this.close();
   }
 
   open () {

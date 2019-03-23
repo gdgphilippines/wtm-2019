@@ -125,7 +125,7 @@ class Page extends TemplateLite(HTMLElement) {
   navigate (string) {
     if (string) {
       const el = this.shadowRoot.querySelector(`.${string}`);
-      if (el) el.scrollIntoView();
+      if (el) window.scrollTo(0, el.offsetTop + 2);
     }
     if (this.scroll) {
       this.scroll();
