@@ -40,9 +40,9 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
             timeSpan: 'AM',
             topics: [
               {
-                title: 'Opening Remarks, Keynote',
+                title: 'Opening Remarks',
                 duration: '15 min',
-                topic: ''
+                topic: 'Faye Estacio'
               }
             ]
           },
@@ -65,7 +65,7 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
               {
                 title: 'Sponsors Talk',
                 duration: '30 min',
-                topic: '(Accenture Philippines)'
+                topic: 'Jacqueline Alba (Accenture Philippines)'
               }
             ]
           },
@@ -111,7 +111,7 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
               {
                 title: 'Talk',
                 duration: '30 min',
-                topic: 'Deanne Dalisay',
+                topic: 'Deanne Dalisay, Former Head of Games at Xurpas',
                 speaker: 7
               }
             ]
@@ -225,7 +225,7 @@ class Page extends TemplateLite(PropertiesLite(HTMLElement)) {
               {
                 title: 'Closing Keynote',
                 duration: '30 min',
-                topic: 'Myna Sabado'
+                topic: 'Jielynn Diroy'
               }
             ]
           }
